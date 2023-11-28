@@ -14,13 +14,13 @@ int check_cycle(listint_t *list)
 	if (!list)
 		return (0);
 
- 	while (slow && fast && fast->next)
+	while (slow && fast && fast->next)
 	{
- 		slow = slow->next;
- 		fast = fast->next->next;
- 		if (slow == fast)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 			return (1);
- 	}
+	}
 	return (0);
 }
 root@e024474929d2:~/alx-higher_level_programming/0x00-python-hello_world# cat lists.h
