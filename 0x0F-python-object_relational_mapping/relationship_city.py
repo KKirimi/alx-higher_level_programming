@@ -1,18 +1,24 @@
 #!/usr/bin/python3
-
 """
-Module that connects a python script to the database
+Contains the class definition of a City.
 """
 
-from sqlalchemy import Column, Integer, String, ForeignKey, null
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
+
 
 Base = declarative_base()
 
+
 class City(Base):
-    """Defining the City class"""
+    """
+    Class definition of a City.
+    Inherits from Base.
+    Links to the MySQL table cities.
+    """
     __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    id = Column(Integer,
+                primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
+    state_id = Column(Integer, ForeignKey(
+                'states.id'), nullable=False)
